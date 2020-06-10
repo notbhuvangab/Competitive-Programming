@@ -33,10 +33,20 @@ int32_t main() {
     cin >> t ;
 
     while( t-- ) {
-        
 
+      ll TS,j;
+      cin>>TS;
+                 
+     if(TS%2==0){
+       while(TS%2==0)
+           TS = TS/2;
+       j = (TS-1)/2;   
+     }
+   else {
+       j = (TS-1)/2;    
+        }
+     
+    cout<<j<<endl; 
     }
-
-    return 0 ;
-
+     
 }

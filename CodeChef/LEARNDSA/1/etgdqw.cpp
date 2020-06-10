@@ -1,4 +1,5 @@
-#include <bits/stdc++.h> 
+#include <iostream>
+#include <vector>
 #define pb push_back
 #define mp make_pair 
 #define fr first
@@ -20,6 +21,31 @@ typedef vector<pll> vpll;
 typedef vector<vll> vvll;
 typedef vector<string> vs;
 
+int nor(ll i,vll arr){
+    int cnt = 0;
+   for(int j=0; j<arr.size();j++)
+     if(arr[i]<=arr[j])
+       cnt++;
+    return cnt;   
+}
+void solve(){
+    ll n;
+    scanf("%lld",&n);
+
+    vll budget(n);
+
+    for(int i=0;i<n;i++) 
+        scanf("%lld",&budget[i]);
+
+    ll max;
+    max = budget[0] * nor(0,budget);
+   for(int i = 1; i<n;i++){
+       if(budget[i]*nor(i,budget)>max)
+          max = budget[i]*nor(i,budget);
+    }
+    printf("%d \n",max);
+}
+
 int32_t main() {
 
     #ifndef ONLINE_JUDGE
@@ -29,13 +55,7 @@ int32_t main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL) ; cout.tie(NULL) ;
 
-    int t ;
-    cin >> t ;
-
-    while( t-- ) {
-        
-
-    }
+    solve();
 
     return 0 ;
 

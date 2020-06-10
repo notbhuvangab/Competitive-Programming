@@ -31,10 +31,21 @@ int32_t main() {
 
     int t ;
     cin >> t ;
-
+     
     while( t-- ) {
-        
-
+    ll n;
+    cin>>n;
+    vll a(n);
+     for(int i=0;i<n;i++) 
+         cin>>a[i];
+    ll chef=0;
+    bool flag;
+    
+    
+    }
+    if(flag = 1)
+        cout<<"YES"<<chef<<endl;
+    else cout<<"NO"<<endl;
     }
 
     return 0 ;
