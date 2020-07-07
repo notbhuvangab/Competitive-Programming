@@ -36,38 +36,33 @@ int32_t main() {
   while (t--) {
     ll n;
     cin >> n;
-    int k = 1;
-    ll arr[n][n];
-    if (n % 2) {
-      for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-          arr[i][j] = k;
-          k++;
-        }
-      }
-    }
-     else {
-      for (int i = 0; i < n; i++) {
-        if (i % 2) {
-          for (int j = n - 1; j >= 0; j--) {
-            arr[i][j] = k;
-            k++;
-          }
-        } 
-        else {
-          for (int j = 0; j < n; j++) {
-            arr[i][j] = k;
-            k++;
-          }
-        }
-      }
-    }
+    ll t = n;
 
-      for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-           cout<<arr[i][j]<<" ";
+    if (n == 1)
+      cout << "FastestFinger"
+           << "\n";
+    else if ((n % 2))
+      cout << "Ashishgup"
+           << "\n";
+    else if (n == 2)
+      cout << "AshishGup" << endl;
+    else {
+      if ((n / 2) % 2) {
+        cout << "FastestFinger" << endl;
+      } else {
+        while (n % 2 == 0) {
+          n /= 2;
         }
-        cout<<endl;
+        if (n == 1)
+          cout << "FastestFinger" << endl;
+        else {
+            if ((n / 2) % 2) {
+          cout << "FastestFinger" << endl;
+        } else
+          cout << "Ashishhup";
       }
+    }
   }
+ }
+  return 0;
 }

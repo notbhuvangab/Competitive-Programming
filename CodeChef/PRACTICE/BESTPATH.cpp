@@ -20,6 +20,33 @@ typedef vector<pll> vpll;
 typedef vector<vll> vvll;
 typedef vector<string> vs;
 
+bool isPrime(ll x) {
+  int cnt = 0;
+  for (ll i = 1; i <= sqrt(x); i++) {
+    if (x % i == 0) {
+      cnt++;
+      if (cnt > 2)
+        break;
+    }
+  }
+  if (cnt == 1)
+    return true;
+  else
+    return false;
+}
+
+vll check(int arr[3][3]) {
+  int org[3][3] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+  vll v;
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+      if (arr[i][j] != org[i][j])
+        v.push_back(arr[i][j]);
+    }
+  }
+  return v;
+}
+
 int32_t main() {
 
 #ifndef ONLINE_JUDGE
@@ -34,40 +61,13 @@ int32_t main() {
   cin >> t;
 
   while (t--) {
-    ll n;
-    cin >> n;
-    int k = 1;
-    ll arr[n][n];
-    if (n % 2) {
-      for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-          arr[i][j] = k;
-          k++;
-        }
-      }
+        int n,m;
+        cin>>n,m;
+    
+    for(int i=0;i<m;i++){
+        
     }
-     else {
-      for (int i = 0; i < n; i++) {
-        if (i % 2) {
-          for (int j = n - 1; j >= 0; j--) {
-            arr[i][j] = k;
-            k++;
-          }
-        } 
-        else {
-          for (int j = 0; j < n; j++) {
-            arr[i][j] = k;
-            k++;
-          }
-        }
-      }
-    }
-
-      for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-           cout<<arr[i][j]<<" ";
-        }
-        cout<<endl;
-      }
   }
+
+  return 0;
 }

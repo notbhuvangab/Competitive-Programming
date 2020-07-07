@@ -20,6 +20,15 @@ typedef vector<pll> vpll;
 typedef vector<vll> vvll;
 typedef vector<string> vs;
 
+int sumofdigits(int x) {
+  int sum = 0;
+  while (x > 0) {
+    sum += (x % 10);
+    x /= 10;
+  }
+  return sum;
+}
+
 int32_t main() {
 
 #ifndef ONLINE_JUDGE
@@ -36,38 +45,32 @@ int32_t main() {
   while (t--) {
     ll n;
     cin >> n;
-    int k = 1;
-    ll arr[n][n];
-    if (n % 2) {
-      for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-          arr[i][j] = k;
-          k++;
-        }
-      }
+    map<char, int> mr;
+    int A[n], B[n];
+    mr['A'] = 0;
+    mr['B'] = 0;
+    for (int i = 0; i < n; i++) {
+      cin >> A[i] >> B[i];
     }
-     else {
-      for (int i = 0; i < n; i++) {
-        if (i % 2) {
-          for (int j = n - 1; j >= 0; j--) {
-            arr[i][j] = k;
-            k++;
-          }
-        } 
-        else {
-          for (int j = 0; j < n; j++) {
-            arr[i][j] = k;
-            k++;
-          }
-        }
+
+    for (int i = 0; i < n; i++) {
+      if (sumofdigits(A[i]) > sumofdigits(B[i]))
+        mr['A']++;
+      else if (sumofdigits(B[i]) > sumofdigits(A[i]))
+        mr['B']++;
+      else {
+        mr['A']++;
+        mr['B']++;
       }
     }
 
-      for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-           cout<<arr[i][j]<<" ";
-        }
-        cout<<endl;
-      }
+    if (mr['A'] > mr['B'])
+      cout << 0 <<" "<< mr['A']<< "\n";
+    if (mr['B'] > mr['A'])
+      cout << 1 << " " <<mr['B']<<"\n";
+    if (mr['A'] == mr['B'])
+      cout << 2 << " "<<mr['A']<<"\n";
   }
+
+  return 0;
 }

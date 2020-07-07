@@ -20,6 +20,13 @@ typedef vector<pll> vpll;
 typedef vector<vll> vvll;
 typedef vector<string> vs;
 
+int mod(int v1, int v2) {
+  if (v2 - v1 > 0)
+    return v2 - v1 - 1;
+  else
+    return -(v2 - v1) - 1;
+}
+
 int32_t main() {
 
 #ifndef ONLINE_JUDGE
@@ -34,40 +41,24 @@ int32_t main() {
   cin >> t;
 
   while (t--) {
-    ll n;
+    int n;
     cin >> n;
-    int k = 1;
-    ll arr[n][n];
-    if (n % 2) {
-      for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-          arr[i][j] = k;
-          k++;
-        }
-      }
-    }
-     else {
-      for (int i = 0; i < n; i++) {
-        if (i % 2) {
-          for (int j = n - 1; j >= 0; j--) {
-            arr[i][j] = k;
-            k++;
-          }
-        } 
-        else {
-          for (int j = 0; j < n; j++) {
-            arr[i][j] = k;
-            k++;
-          }
-        }
-      }
+
+    int arr[n];
+    for (int i = 0; i < n; i++) {
+      cin >> arr[i];
     }
 
-      for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-           cout<<arr[i][j]<<" ";
-        }
-        cout<<endl;
-      }
+    ll sum = 0;
+
+    for (int i = 0; i < n-1; i++) {
+      sum += mod(arr[i], arr[i + 1]);
+    //   cout<<sum<<"\t";
+    }
+
+    cout<<sum<<endl;
+    // cout << sum << endl;
   }
+
+  return 0;
 }

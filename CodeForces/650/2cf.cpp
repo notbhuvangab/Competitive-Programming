@@ -36,38 +36,29 @@ int32_t main() {
   while (t--) {
     ll n;
     cin >> n;
-    int k = 1;
-    ll arr[n][n];
-    if (n % 2) {
-      for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-          arr[i][j] = k;
-          k++;
-        }
-      }
-    }
-     else {
-      for (int i = 0; i < n; i++) {
-        if (i % 2) {
-          for (int j = n - 1; j >= 0; j--) {
-            arr[i][j] = k;
-            k++;
-          }
-        } 
-        else {
-          for (int j = 0; j < n; j++) {
-            arr[i][j] = k;
-            k++;
-          }
-        }
+
+    vector<int> a(n);
+    for (int i = 0; i < n; i++)
+      cin >> a[i];
+    ll cnt = 0;
+    for (int i = 0; i < n; i++) {
+      if (i % 2) {
+        if (a[i] % 2) {
+          continue;
+        } else
+          cnt++;
+      } else {
+        if (a[i] % 2 == 0)
+          continue;
+        else
+          cnt++;
       }
     }
 
-      for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-           cout<<arr[i][j]<<" ";
-        }
-        cout<<endl;
-      }
+    if (cnt % 2)
+      cout << -1 << endl;
+    else {
+      cout << (cnt / 2) << endl;
+    }
   }
 }

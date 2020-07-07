@@ -34,40 +34,23 @@ int32_t main() {
   cin >> t;
 
   while (t--) {
-    ll n;
-    cin >> n;
-    int k = 1;
-    ll arr[n][n];
-    if (n % 2) {
-      for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-          arr[i][j] = k;
-          k++;
-        }
-      }
-    }
-     else {
-      for (int i = 0; i < n; i++) {
-        if (i % 2) {
-          for (int j = n - 1; j >= 0; j--) {
-            arr[i][j] = k;
-            k++;
-          }
-        } 
-        else {
-          for (int j = 0; j < n; j++) {
-            arr[i][j] = k;
-            k++;
-          }
-        }
-      }
-    }
+    int x;
+    cin >> x;
 
-      for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-           cout<<arr[i][j]<<" ";
+    for (int i = 0; i < 8; i++) {
+      for (int j = 0; j < 8; j++) {
+        if (i == 0 && j == 0) {
+          cout << "O";
+          x -= 1;
+          continue;
+        } else if (x) {
+          cout << ".";
+          x -= 1;
+        } else {
+          cout << "X";
         }
-        cout<<endl;
       }
+      cout << "\n";
+    }
   }
 }
