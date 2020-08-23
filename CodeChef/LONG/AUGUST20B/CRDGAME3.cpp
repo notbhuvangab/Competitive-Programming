@@ -11,7 +11,7 @@
 #define alla(a,n) a, a + n
   
 using namespace std;
- 
+
 typedef long long ll;
 typedef unsigned long long ull;
 typedef pair<ll, ll> pll;
@@ -20,14 +20,13 @@ typedef vector<pll> vpll;
 typedef vector<vll> vvll;
 typedef vector<string> vs;
 
-int arrsum(vll v){
-    int sum = 0;
-    for(int i=0;i<v.size();i++)
-     sum+= v[i];
-    
-    return sum;
-    }
 
+ll dig(ll x){
+    if(x%9==0)
+      return x/9;
+    else
+      return x/9 +1;
+}
 
 int32_t main() {
 
@@ -42,30 +41,20 @@ int32_t main() {
     cin >> t ;
 
     while( t-- ) {
-        ll n,k;
-        cin>>n>>k;
+        ll pc,pr;
+        cin>>pc>>pr;
 
-        vll a(n),b(n);
+        if(dig(pc) == dig(pr)){
+            cout<<1<<" "<<dig(pr)<<endl;
+        }
+        else if(dig(pr) > dig(pc)){
+            cout<<0<<" "<<dig(pc)<<endl;
+        }
+        else{
+            cout<<1<<" "<<dig(pr)<<endl;
+        }
 
-      for(int i=0;i<n;i++){
-          cin>>a[i];
-      }
-      for(int i=0;i<n;i++){
-          cin>>b[i];
-      }
-       
-      sort(a.begin(),a.end());
-      sort(b.begin(),b.end(),greater<int>());
-
-     for(int i=0;i<k;i++){
-         swap(a[i],b[i]);
-     }
-      
-     cout<<arrsum(a);   
-
-    
     }
-
 
     return 0 ;
 
