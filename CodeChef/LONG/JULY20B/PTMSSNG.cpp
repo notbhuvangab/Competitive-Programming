@@ -20,6 +20,15 @@ typedef vector<pll> vpll;
 typedef vector<vll> vvll;
 typedef vector<string> vs;
 
+int getOddOccurrence(vll v, int d) 
+{ 
+    int res = 0;  
+    for (int i = 0; i < d; i++)      
+        res = res ^ v[i]; 
+      
+    return res; 
+} 
+
 int32_t main() {
 
     #ifndef ONLINE_JUDGE
@@ -35,28 +44,56 @@ int32_t main() {
     while( t-- ) {
     ll N;
     cin>>N;
+    
+     vpll v(4*N);
 
-    pair<int,int> v[4*N-1];
+     vll v1;
+     vll v2;
+     map<int,int> m;
+     map<int,int> m2;
 
-    for(int i=0;i<(4*N)-1;i++){
-        cin>>v[i].fr>>v[i].sc;
-    }
-     
-    map<int,int> m;
-
-    for(int i=0;i<(4*N)-1;i++){
-        m[v[i].fr]=0; m[v[i].sc]=0;  
-    }
-     for(int i=0;i<(4*N)-1;i++){
-        //  if(v[i].fr == v[i].sc)
-           m[v[i].fr]++;  
-           
-          m[v[i].sc]++;
+     for(int i=0;i<4*N-1;i++){
+         cin>>v[i].fr>>v[i].sc;
+         v1.pb(v[i].fr);
+         v2.pb(v[i].sc);
      }
-    for(int i=0;i<(4*N)-1;i++){
-        cout<<m[v[i].fr];
-    }
+          
+    //  for(int i=0;i<4*N-1;i++){
+    //      m[v[i].fr]++;
+    //      m2[v[i].sc]++;
+    //  }
+
+    //  set<int>::iterator itr;
+   
+    //  for(itr = st.begin();itr!= st.end();itr++){
+    //      if(m[*itr]%2){
+    //           v[4*N-1].fr = *itr;
+    //           break;
+    //              }
+    //        }
      
+    //  for(itr = st2.begin();itr!=st2.end();itr++){
+    //      if(m2[*itr]%2){
+    //            v[4*N-1].sc = *itr;
+    //            break;
+    //      }
+    //  }
+    // // bool flag = false;
+    // //  for(int i=0;i<4*N-1;i++){
+    // //       if(v[i]==v[4*N-1]){
+    // //           flag = true;
+    // //           break;
+    // //       }
+    // //  }
+    // //  if(flag)
+    // //    cout<<v[4*N-1].sc<" "<<v[4*N-1].fr;
+       
+       v[4*N-1].fr = getOddOccurrence(v1,v1.size());
+       v[4*N-1].sc = getOddOccurrence(v2,v2.size());
+     
+     cout<<v[4*N-1].fr<<" "<<v[4*N-1].sc<<endl;
+     
+
     }
     return 0 ;
 

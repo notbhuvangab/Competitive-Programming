@@ -1,4 +1,5 @@
 #include <bits/stdc++.h> 
+#include <stdlib.h>
 #define pb push_back
 #define mp make_pair 
 #define fr first
@@ -20,15 +21,6 @@ typedef vector<pll> vpll;
 typedef vector<vll> vvll;
 typedef vector<string> vs;
 
-int arrsum(vll v){
-    int sum = 0;
-    for(int i=0;i<v.size();i++)
-     sum+= v[i];
-    
-    return sum;
-    }
-
-
 int32_t main() {
 
     #ifndef ONLINE_JUDGE
@@ -42,30 +34,15 @@ int32_t main() {
     cin >> t ;
 
     while( t-- ) {
-        ll n,k;
-        cin>>n>>k;
+      int n;
+      cin>>n;
 
-        vll a(n),b(n);
+      for(int i=1;i<=n;i+=2)
+        cout<<i<<" ";
 
-      for(int i=0;i<n;i++){
-          cin>>a[i];
-      }
-      for(int i=0;i<n;i++){
-          cin>>b[i];
-      }
-       
-      sort(a.begin(),a.end());
-      sort(b.begin(),b.end(),greater<int>());
+      cout<<endl;
 
-     for(int i=0;i<k;i++){
-         swap(a[i],b[i]);
-     }
-      
-     cout<<arrsum(a);   
-
-    
     }
-
 
     return 0 ;
 

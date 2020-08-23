@@ -20,15 +20,6 @@ typedef vector<pll> vpll;
 typedef vector<vll> vvll;
 typedef vector<string> vs;
 
-int arrsum(vll v){
-    int sum = 0;
-    for(int i=0;i<v.size();i++)
-     sum+= v[i];
-    
-    return sum;
-    }
-
-
 int32_t main() {
 
     #ifndef ONLINE_JUDGE
@@ -42,30 +33,21 @@ int32_t main() {
     cin >> t ;
 
     while( t-- ) {
-        ll n,k;
-        cin>>n>>k;
+       int N,K;
+       cin>>N>>K;
 
-        vll a(n),b(n);
-
-      for(int i=0;i<n;i++){
-          cin>>a[i];
-      }
-      for(int i=0;i<n;i++){
-          cin>>b[i];
-      }
-       
-      sort(a.begin(),a.end());
-      sort(b.begin(),b.end(),greater<int>());
-
-     for(int i=0;i<k;i++){
-         swap(a[i],b[i]);
-     }
-      
-     cout<<arrsum(a);   
-
-    
+       int A[N];
+       for(int i=0;i<N;i++){
+           cin>>A[i];
+       }
+       for(int i=0;i<N;i++){
+           if(A[i]%K)
+            cout<<0;
+           else 
+            cout<<1;
+       }
+       cout<<endl;
     }
-
 
     return 0 ;
 
