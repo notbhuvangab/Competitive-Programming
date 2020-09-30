@@ -33,8 +33,26 @@ int32_t main() {
     cin >> t ;
 
     while( t-- ) {
-      
+    int n;
+    cin>>n;
+
+    int arr[n][n];
+
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            cin>>arr[i][i];
+        }
     }
+    
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            if(arr[i][j] != (i*n)+(j+1)){
+                cout<<j<<endl;
+                break;
+            }
+       }
+    
+ }
 
     return 0 ;
 
