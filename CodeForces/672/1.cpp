@@ -25,7 +25,6 @@ int32_t main() {
 
 #ifndef ONLINE_JUDGE
   freopen("input.txt", "r", stdin);
-  freopen("output.txt", "w", stdout);
 #endif
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
@@ -35,7 +34,27 @@ int32_t main() {
   cin >> t;
 
   while(t--){
-      
+      int n;
+      cin>>n;
+
+      vll v(n);
+      int cnt = 0;
+
+      for(int i=0;i<n;i++)
+        cin>>v[i];
+
+      for(int i=1;i<n;i++){
+        for(int j=i;j<n;j++)
+        if(v[j] > v[j-1]){
+
+          int temp = v[j];
+          v[j] = v[j-1];
+          v[j-1] = temp;
+
+          cnt++;
+      }  
+     }
+      cout<<cnt<<endl;
   }
   return 0;
 }

@@ -12,7 +12,7 @@
 
 using namespace std;
 
-typedef long long int ll;
+typedef long long ll;
 typedef unsigned long long ull;
 typedef pair<ll, ll> pll;
 typedef vector<ll> vll;
@@ -33,27 +33,21 @@ int32_t main() {
   int t;
   cin >> t;
 
-  while (t--) {
-    ll n, b, m;
-    vll x(m);
-    cin >> n >> b >> m;
+  while(t--){
+      ll n,k,l;
+      cin>>n>>k>>l;
 
-    for (int i = 0; i < m; i++)
-      cin >> x[i];
-
-    int current, cnt = 0, prev = -1;
-
-    for (int i = 0; i < m; i++) {
-      current = x[i] / b;
-      if (current == prev)
-        continue;
-      else {
-        prev = current;
-        cnt++;
-      }
-    }
-
-    cout << cnt << endl;
+      if((n%(l*k))<=l)
+        cout<<-1<<endl;
+       else{
+        for(int i=1;i<=n;i++){
+          if(i%k==0)
+            cout<<k<<" ";
+          else
+            cout<<i%k<<" ";
+        }
+        cout<<endl;
+      }   
   }
-return 0;
+
 }
