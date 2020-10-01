@@ -9,7 +9,6 @@
 #define max3(a, b, c) max(a, max(b, c))
 #define all(v) v.begin(), v.end()
 #define alla(a, n) a, a + n
-#define fastAsFuck_boi()   ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 
 using namespace std;
 
@@ -20,6 +19,7 @@ typedef pair<ll, ll> pll;
 typedef vector<ll> vll;
 typedef vector<pll> vpll;
 typedef vector<vll> vvll;
+typedef vector<string> vs;
 
 int32_t main() {
 
@@ -35,7 +35,40 @@ int32_t main() {
   cin >> t;
 
   while(t--){
-		
+      int n;
+		string origin;
+		cin>>n>>origin;
+
+		int laddus= 0;
+		for(int i=0;i<n;i++){
+			string activity;
+			cin>>activity;
+
+			if(activity == "CONTEST_WON"){
+				int rank;
+				cin>>rank;
+				if(rank<20)
+					laddus += 300 + (20-rank);
+				else
+					laddus +=300;
+			}
+			else if(activity == "TOP_CONTRIBUTOR")
+				laddus+=300;
+			else if(activity == "BUG_FOUND"){
+				int severity;
+				cin>>severity;
+
+				laddus += severity;
+			}
+			else
+				laddus +=50;
+  }
+
+	if(origin == "INDIAN")
+		cout<<laddus/200<<endl;
+	else
+		cout<<laddus/400<<endl;
+	
 	}
-  return 0;
+	return 0;
 }
