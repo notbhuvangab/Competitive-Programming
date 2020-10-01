@@ -9,7 +9,6 @@
 #define max3(a, b, c) max(a, max(b, c))
 #define all(v) v.begin(), v.end()
 #define alla(a, n) a, a + n
-#define fastAsFuck_boi()   ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 
 using namespace std;
 
@@ -35,7 +34,22 @@ int32_t main() {
   cin >> t;
 
   while(t--){
-		
+    ll k,d0,d1;
+
+    cin>>k>>d0>>d1;
+
+    int sum = d0 + d1;
+    while(k-2){
+      sum += sum%10;
+      k--;
+    }
+
+    if(sum%3)
+      cout<<"NO"<<endl;
+    else
+      cout<<"YES"<<endl;
+
+    cout<<sum<<endl;
 	}
   return 0;
 }
