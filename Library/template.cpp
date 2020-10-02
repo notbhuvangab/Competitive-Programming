@@ -9,8 +9,8 @@
 #define max3(a, b, c) max(a, max(b, c))
 #define all(v) v.begin(), v.end()
 #define alla(a, n) a, a + n
-#define fastAsFuck_boi()   ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
-
+#define fastAsFk_boi() ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+#define fakin_hell #ifndef ONLINE_JUDGE freopen("input.txt", "r", stdin);freopen("output.txt", "w", stdout); #endif 
 using namespace std;
 
 typedef long long ll;
@@ -23,13 +23,8 @@ typedef vector<vll> vvll;
 
 int32_t main() {
 
-#ifndef ONLINE_JUDGE
-  freopen("input.txt", "r", stdin);
-  freopen("output.txt", "w", stdout);
-#endif
-  ios_base::sync_with_stdio(false);
-  cin.tie(NULL);
-  cout.tie(NULL);
+  fakin_hell;
+  fastAsFk_boi();
 
   int t;
   cin >> t;
