@@ -25,19 +25,6 @@ typedef vector<ll> vll;
 typedef vector<pll> vpll;
 typedef vector<vll> vvll;
 
-int findIndex(vector<ll> v, int n, int p, int x) {
-  int min = MAX_INT, pos_x;
-  for (int i = 0; i < n; i++) {
-    if (v[i] == x) {
-      if (abs(p - i) < min) {
-        min = abs(p - i);
-        pos_x = i;
-      }
-    }
-  }
-  return pos_x;
-}
-
 int32_t main() {
 
 #ifndef ONLINE_JUDGE
@@ -54,34 +41,23 @@ int32_t main() {
     int n, x, p, k;
     cin >> n >> x >> p >> k;
 
+    ll less_cnt = 0,eq_cnt = 0;
+
     vll arr(n);
     for (int i = 0; i < n; i++) {
       cin >> arr[i];
+      if(arr[i] < x) less_cnt++;
+      else if(arr[i]==x) eq_cnt++;
     }
 
-    sort(arr.begin(), arr.end());
-
-    int index = findIndex(arr, n, p, x);
-    int cnt = 0;
-
-    if (arr[index] != x) {
-      arr[k - 1] = x;
-      sort(arr.begin(), arr.end());
-      cnt++;
-    }
-
-    if (arr[p - 1] == x) {
-      cout << cnt << endl;
-      continue;
-    }
-
-    if ((p < k && arr[p - 1] < x) || (p > k && arr[p - 1] > x)) {
-      cout << -1 << endl;
-      continue;
-    }
-
-    index = findIndex(arr, n, p, x) + 1;
-    cout << abs(p - index) + cnt << endl;
+    if(p<=less_cnt && k<=p)
+        cout<<less_cnt - p + 1<<endl;
+    else if(less_cnt < p && p <=less_cnt + eq_cnt )
+        cout<<0<<endl;
+    else if(less_cnt + eq_cnt < p && p<=k)
+        cout<<p - less_cnt - eq_cnt<<endl;
+    else 
+        cout<<-1<<endl;
   }
   return 0;
 }
