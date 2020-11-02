@@ -23,18 +23,16 @@ typedef vector<vll> vvll;
 
 int32_t main() {
 
-    #ifndef ONLINE_JUDGE 
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin) ;
+    freopen("output.txt", "w", stdout) ;
     #endif
 
 	fastAsFk_boi();
 
 	int t;
-	cin >> t;
+	cin>>t;
 
-    while(t--){
-        
-	}
+    t%4?cout<<t-1:cout<<t+1;
     return 0;
 }

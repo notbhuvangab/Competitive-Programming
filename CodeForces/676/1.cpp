@@ -10,6 +10,7 @@
 #define all(v) v.begin(), v.end()
 #define alla(a, n) a, a + n
 #define fastAsFk_boi()   ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+#define biggy 89215
 
 using namespace std;
 
@@ -34,7 +35,10 @@ int32_t main() {
 	cin >> t;
 
     while(t--){
+        int a,b;
+        cin>>a>>b;
         
+        cout<<(a^biggy)+(b^biggy)<<endl;
 	}
     return 0;
 }

@@ -1,2 +1,2 @@
-
-  cout.tie(NULL);
+xt", "r", stdin);
+    freopen("output.t

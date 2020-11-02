@@ -21,6 +21,15 @@ typedef vector<ll> vll;
 typedef vector<pll> vpll;
 typedef vector<vll> vvll;
 
+int nOfDigits(int x){
+    int cnt = 0;
+    while(x){
+        cnt++;
+        x/=10;
+    }
+    return cnt;
+}
+
 int32_t main() {
 
     #ifndef ONLINE_JUDGE 
@@ -34,6 +43,10 @@ int32_t main() {
 	cin >> t;
 
     while(t--){
+        int x;
+        cin>>x;
+
+        cout<<((x%10)-1)*10 + (nOfDigits(x)*(nOfDigits(x)+1))/2<<endl;
         
 	}
     return 0;

@@ -34,7 +34,34 @@ int32_t main() {
 	cin >> t;
 
     while(t--){
+        int n;
+        cin>>n;
+
+        vll vec(n);
+
+        for(int i=0;i<n;i++)
+            cin>>vec[i];
         
+        int lb,ub;
+
+        for(int i=0;i<n;i++){
+            if(vec[i]==1){
+                lb = i;
+                break;
+            }
+        }
+        for(int i=n-1;i>=0;i--){
+            if(vec[i]==1){
+                ub = i;
+                break;
+            }
+        }
+        int cnt = 0;
+        for(int i=lb;i<=ub;i++)
+            if(vec[i]==0)
+                cnt++;
+
+        cout<<cnt<<endl;
 	}
     return 0;
 }
