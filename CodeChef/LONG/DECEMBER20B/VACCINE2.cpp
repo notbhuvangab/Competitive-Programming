@@ -10,6 +10,7 @@
 #define all(v) v.begin(), v.end()
 #define alla(a, n) a, a + n
 #define fastAsFk_boi()   ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+#define where(n) (n>9 && n<80)?1:0
 
 using namespace std;
 
@@ -37,25 +38,23 @@ int32_t main() {
         int n,d;
         cin>>n>>d;
 
-        int arr[n];
+        ll arr[n];
         for(int i=0;i<n;i++)
             cin>>arr[i];
 
-        int dcnt = 0,cnt = 0;
-        for(int i=0;i<n;i++){
-            if(arr[i]>9 && arr[i]<80){
-                if(dcnt == d){
-                    cnt++;
-                    dcnt=0;
-                }
-                dcnt++
-            }
-            else{
-                if(
-            }
+        int risk1 = 0,risk2 = 0;
 
-            }
+        for(int i = 0; i < n; i++){
+    		if(arr[i] >= 80 || arr[i] <= 9)
+    		risk1++;
+    		else
+    		risk2++;
         }
-	}
+        ll cnt = ceil((double) risk1 / (double)d) + ceil((double)risk2 / (double)d);
+
+        
+        cout<<cnt<<endl;
+        }
+	
     return 0;
 }
