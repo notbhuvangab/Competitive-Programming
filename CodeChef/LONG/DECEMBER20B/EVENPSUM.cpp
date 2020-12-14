@@ -21,7 +21,6 @@ typedef vector<ll> vll;
 typedef vector<pll> vpll;
 typedef vector<vll> vvll;
 
-
 int32_t main() {
 
     #ifndef ONLINE_JUDGE 
@@ -31,17 +30,17 @@ int32_t main() {
 
 	fastAsFk_boi();
 
-	ll d1,v1,d2,v2,p;
-    cin>>d1>>v1>>d2>>v2>>p;
-    int i=1,cnt=0;
-    while(p){
-        if(i>=d1 && i>=d2){
-            p=
-            cnt++;
-        }
-        i++;
-    }
+	int t;
+	cin >> t;
 
-    cout<<cnt<<endl;
+    while(t--){
+        ll a,b;
+        cin>>a>>b;
+
+        if((a*b)%2)
+            cout<<a*b/2 + 1<<endl;
+        else
+            cout<<a*b/2<<endl;
+	}   
     return 0;
 }

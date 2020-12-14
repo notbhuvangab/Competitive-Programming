@@ -21,6 +21,16 @@ typedef vector<ll> vll;
 typedef vector<pll> vpll;
 typedef vector<vll> vvll;
 
+int LCW(string x,string y){
+    int LCW[x.length()+1][y.length()+1];
+
+    for(int i=0;i<=x.length();i++)
+        LCW[i][y.length()] = 0;
+    for(int i=0;i<=y.length();i++)
+        LCW[x.length()][i] = 0;
+
+    
+}
 
 int32_t main() {
 
@@ -31,17 +41,16 @@ int32_t main() {
 
 	fastAsFk_boi();
 
-	ll d1,v1,d2,v2,p;
-    cin>>d1>>v1>>d2>>v2>>p;
-    int i=1,cnt=0;
-    while(p){
-        if(i>=d1 && i>=d2){
-            p=
-            cnt++;
-        }
-        i++;
-    }
+	int t;
+	cin >> t;
 
-    cout<<cnt<<endl;
+    while(t--){
+        ll n,m;
+        string x,y;
+        cin>>n>>x>>m>>y;
+
+
+
+	}
     return 0;
 }
