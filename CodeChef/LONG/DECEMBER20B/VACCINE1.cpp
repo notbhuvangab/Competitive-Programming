@@ -34,14 +34,15 @@ int32_t main() {
 	ll d1,v1,d2,v2,p;
     cin>>d1>>v1>>d2>>v2>>p;
     int i=1,cnt=0;
-    while(p){
-        if(i>=d1 && i>=d2){
-            p=
-            cnt++;
-        }
+    while(cnt < p){
+        if(i>=d1)
+            cnt+=v1;
+        if(i >=d2)
+            cnt+=v2;
+        
         i++;
     }
 
-    cout<<cnt<<endl;
+    cout<<i-1<<endl;
     return 0;
 }

@@ -21,16 +21,44 @@ typedef vector<ll> vll;
 typedef vector<pll> vpll;
 typedef vector<vll> vvll;
 
-int LCW(string x,string y){
-    int LCW[x.length()+1][y.length()+1];
+// void LCW(string x,string y){
+    // int LCW[n+1][m+1];
 
-    for(int i=0;i<=x.length();i++)
-        LCW[i][y.length()] = 0;
-    for(int i=0;i<=y.length();i++)
-        LCW[x.length()][i] = 0;
-
+    // for(int i=0;i<=n;i++)
+    //     LCW[i][m] = 0;
+    // for(int i=0;i<=m;i++)
+    //     LCW[n][i] = 0;
     
-}
+    // int maxLCW = 0,a,b;
+
+    // for(int i=m-1;i>=0;i--){
+    //     for(int j=n-1;j>=0;j--){
+    //         if(y[i] == x[j])    
+    //             LCW[i][j] = 1 + LCW[i+1][j+1];
+    //         else
+    //             LCW[i][j] = 0;
+
+    //         if(LCW[i][j] > maxLCW){
+    //             maxLCW = LCW[i][j];
+    //             a = i;
+    //             b = j;
+    //         }
+    //     }
+    // }
+    
+    // if(maxLCW == 1)
+    //     cout<<"case "<<t<<" "<<"N\n";
+    // else{
+    // cout<<"case "<<t<<" "<<"Y\n";
+    // cout<<maxLCW<<endl;
+    // while(maxLCW--){
+    //     cout<<y[a]<<" "<<a<<" "<<b<<endl;
+    //     a++;b++;
+    // }
+    // }
+
+
+// }
 
 int32_t main() {
 
@@ -48,8 +76,41 @@ int32_t main() {
         ll n,m;
         string x,y;
         cin>>n>>x>>m>>y;
+        
+    int LCW[n+1][m+1];
 
+    for(int i=0;i<=n;i++)
+        LCW[i][m] = 0;
+    for(int i=0;i<=m;i++)
+        LCW[n][i] = 0;
+    
+    int maxLCW = 0,a,b;
 
+    for(int i=m-1;i>=0;i--){
+        for(int j=n-1;j>=0;j--){
+            if(y[i] == x[j])    
+                LCW[i][j] = 1 + LCW[i+1][j+1];
+            else
+                LCW[i][j] = 0;
+
+            if(LCW[i][j] > maxLCW){
+                maxLCW = LCW[i][j];
+                a = i;
+                b = j;
+            }
+        }
+    }
+    
+    if(maxLCW == 1)
+        cout<<"case "<<t<<" "<<"N\n";
+    else{
+        cout<<"case "<<t<<" "<<"Y\n";
+        cout<<maxLCW<<endl;
+        while(maxLCW--){
+            cout<<y[a]<<" "<<a<<" "<<b<<endl;
+            a++;b++;
+        }
+    }
 
 	}
     return 0;
