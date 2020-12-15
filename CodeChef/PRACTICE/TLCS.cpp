@@ -71,7 +71,7 @@ int32_t main() {
 
 	int t;
 	cin >> t;
-
+    int tt = 1;
     while(t--){
         ll n,m;
         string x,y;
@@ -85,33 +85,33 @@ int32_t main() {
         LCW[n][i] = 0;
     
     int maxLCW = 0,a,b;
-
-    for(int i=m-1;i>=0;i--){
-        for(int j=n-1;j>=0;j--){
-            if(y[i] == x[j])    
+    int r=0,c=0;
+    for(int i=n-1;i>=0;i--){
+        for(int j=m-1;j>=0;j--){
+            if(y[j] == x[i])    
                 LCW[i][j] = 1 + LCW[i+1][j+1];
             else
                 LCW[i][j] = 0;
-
+            
             if(LCW[i][j] > maxLCW){
                 maxLCW = LCW[i][j];
-                a = i;
-                b = j;
+                a = m-1-j;
+                b = n-1-i;
             }
         }
     }
     
     if(maxLCW == 1)
-        cout<<"case "<<t<<" "<<"N\n";
+        cout<<"case "<<tt<<" "<<"N\n";
     else{
-        cout<<"case "<<t<<" "<<"Y\n";
+        cout<<"case "<<tt<<" "<<"Y\n";
         cout<<maxLCW<<endl;
         while(maxLCW--){
             cout<<y[a]<<" "<<a<<" "<<b<<endl;
             a++;b++;
         }
     }
-
+    tt++;
 	}
     return 0;
 }
