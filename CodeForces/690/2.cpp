@@ -44,10 +44,13 @@ int32_t main() {
             for(int i=0;i<n;i++){
                 
         }
-        else{
+        }
+        else if(s[n-1] = '0'){
             cout<<
-        }
-        }
+        }-
+        else
+            cout<<"NO"<<endl;
+        
         
 	}
     return 0;

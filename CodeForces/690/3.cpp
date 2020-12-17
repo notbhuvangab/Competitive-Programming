@@ -39,28 +39,28 @@ int32_t main() {
 
         if(n<=9)
             cout<<n<<endl;
-        else if(n>=45)
+        else if(n>45)
             cout<<-1<<endl;
         else{
             vector<int> x;
 
-            for(int i=9;i>0;i++){
+            for(int i=9;i>0;i--){
                 if(n > i){
                     x.pb(i);
                     n-=i;
                 }
-                else
+                else{
                     x.pb(n);
+                    break;
+                }
             }
-
             sort(x.begin(),x.end());
 
             for(int i=0;i<x.size();i++){
                 cout<<x[i];
             }
+            cout<<endl;
         }
-
-        cout<<endl;
 	}
     return 0;
 }
