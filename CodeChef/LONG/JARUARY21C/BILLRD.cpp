@@ -37,25 +37,42 @@ int32_t main() {
         ll n,k,x,y;
         cin>>n>>k>>x>>y;
 
+        ll i,j;
+
         if(x==y)
             cout<<n<<" "<<n<<endl;
-        else{
-            while(k){
-                if (y <= 0 || y >= n) {
-                    y = -y;
-                    k--;
-                }
-                if (x <= 0 || x >= n) {
-                    x = -x;
-                    k--;
-                }     
-
+        else{   
+            while(x<n && y<n){
                 x++;
                 y++;
             }
-        cout<<x<<" "<<y<<endl;
-    }
+
+            map<ll,pll> find;
+            find[1] = mp(x,y);
+            find[2] = mp(y,x);
+            x>y?find[3]=mp(0,x-y):find[3]=mp(y-x,0);
+            x>y?find[0]=mp(x-y,0):find[0]=mp(0,y-x);
+
+            cout<<find[k%4].first<<" "<<find[k%4].second<<endl;
+            
+        //     while(k){
+        //         if (y <= 0 || y >= n) {
+        //             y = -y;
+        //             k--;
+        //         }
+        //         if (x <= 0 || x >= n) {
+        //             x = -x;
+        //             k--;
+        //         }     
+
+        //         x++;
+        //         y++;
+        //     }
+        // cout<<x<<" "<<y<<endl;
+    
 
 	}
+
+    }
     return 0;
 }

@@ -42,6 +42,7 @@ int32_t main() {
             cin>>box[i];
         
         sort(box.begin(),box.end());
+        
 
         
 	}
