@@ -34,15 +34,44 @@ int32_t main() {
 	cin >> t;
 
     while(t--){
-        int n,k;
+        int n,k,sum=0;
         cin>>n>>k;
 
         vector<int> box(n);
-        for(int i=0;i<n;i++)
+        for(int i=0;i<n;i++){
             cin>>box[i];
+            sum+=box[i];
+        }
+        sort(box.begin(),box.end(),greater<int>());
         
-        sort(box.begin(),box.end());
-        
+        if(sum < 2*k){
+            cout<<-1<<endl;
+        }
+        else{
+            int sum1=0,sum2=0,cnt1=0,cnt2=0;
+            for(int i=0;i<box.size();i++){
+                if(sum1>k && sum2>k)
+                    break;
+                else if(i%2){
+                    if(sum2<k){
+                        sum2+=box[i];
+                        cnt2++;
+                    }
+                    else 
+                        continue;
+                }
+                else{
+                    if(sum1<k){
+                        sum1+=box[i];
+                        cnt1++;
+                    }
+                    else{
+                        continue;
+                    }
+                }
+            }
+            cout<<cnt1+cnt2<<endl;
+        }
 
         
 	}

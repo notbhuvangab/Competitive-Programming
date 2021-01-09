@@ -55,21 +55,7 @@ int32_t main() {
 
             cout<<find[k%4].first<<" "<<find[k%4].second<<endl;
             
-        //     while(k){
-        //         if (y <= 0 || y >= n) {
-        //             y = -y;
-        //             k--;
-        //         }
-        //         if (x <= 0 || x >= n) {
-        //             x = -x;
-        //             k--;
-        //         }     
 
-        //         x++;
-        //         y++;
-        //     }
-        // cout<<x<<" "<<y<<endl;
-    
 
 	}
 
