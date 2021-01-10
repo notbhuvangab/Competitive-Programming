@@ -34,28 +34,22 @@ int32_t main() {
 	cin >> t;
 
     while(t--){
-        ll n,k,x,y;
-        cin>>n>>k>>x>>y;
+        int n,k,sum=0;
+        cin>>n>>k;
 
-        ll i,j;
+        vector<int> box(n);
+        for(int i=0;i<n;i++){
+            cin>>box[i];
+            sum+=box[i];
+        }
 
-        if(x==y)
-            cout<<n<<" "<<n<<endl;
-        else{   
-            while(x<n && y<n){
-                x++;
-                y++;
-            }
+        bool dp[n+1][k+1];
 
-            map<ll,pll> find;
-            find[1] = mp(x,y);
-            find[2] = mp(y,x);
-            x>y?find[3]=mp(0,x-y):find[3]=mp(y-x,0);
-            x>y?find[0]=mp(x-y,0):find[0]=mp(0,y-x);
-
-            cout<<find[k%4].first<<" "<<find[k%4].second<<endl;
+        for (int i = 0; i <= n; i++)
+            dp[i][0] = true;
+        
+        for(int i)
 	}
 
-    }
     return 0;
 }

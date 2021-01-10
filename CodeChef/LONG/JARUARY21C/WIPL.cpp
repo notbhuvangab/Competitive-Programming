@@ -44,36 +44,61 @@ int32_t main() {
         }
         sort(box.begin(),box.end(),greater<int>());
         
-        if(sum < 2*k){
+        if(sum < 2*k || n==1){
             cout<<-1<<endl;
         }
+        // else if(sum == 2*k){
+
+        // }
         else{
             int sum1=0,sum2=0,cnt1=0,cnt2=0;
+            bool flag1 = true,flag2 = true;
             for(int i=0;i<box.size();i++){
-                if(sum1>k && sum2>k)
-                    break;
-                else if(i%2){
+                if(sum1<k && sum2<k){
+                    if(i%2){
                     if(sum2<k){
+                        // jump1:
                         sum2+=box[i];
                         cnt2++;
                     }
-                    else 
-                        continue;
+                    if(sum2<k && i>=box.size()-2)
+                        flag2 = false;
+                    // if(sum2>=k && sum1<k)
+                    //     goto jump2;
                 }
                 else{
                     if(sum1<k){
+                        // jump2:
                         sum1+=box[i];
                         cnt1++;
                     }
-                    else{
-                        continue;
-                    }
+                    if(sum1<k && i>=box.size()-2)
+                        flag1 = false;
+                    // if(sum1>=k && sum2<k)
+                    //     goto jump1;
                 }
             }
+            else if(sum1<k && sum2>=k){
+                sum1+=box[i];
+                    cnt1++;
+                if(sum1<k &&i==box.size()-1)
+                        flag1 = false;
+            }
+            else if(sum2<k && sum1>=k){
+                sum2+=box[i];
+                    cnt2++;
+                if(sum2<k && i==box.size()-1)
+                        flag2 = false;
+            }
+            else 
+                break;
+        }
+            if(flag1 && flag2)
             cout<<cnt1+cnt2<<endl;
+            else 
+            cout<<-1<<endl;
         }
 
-        
 	}
     return 0;
 }
