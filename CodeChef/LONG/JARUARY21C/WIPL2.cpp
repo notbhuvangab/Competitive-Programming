@@ -21,6 +21,36 @@ typedef vector<ll> vll;
 typedef vector<pll> vpll;
 typedef vector<vll> vvll;
 
+int givedadp(vector<int> box,int n,int k){
+    int tempsum = 0;
+
+    if(n==1)
+        return -1;
+    bool dp[n+1][16000];
+    memset(dp,0,sizeof(dp));
+    
+    for(int i=0;i<=n;i++){
+        dp[i][0] = true;
+    }
+
+    for(int i=1;i<=n;i++){
+        tempsum+=box[i-1];
+        for(int j=1;j<=tempsum;j++){
+            if(dp[i-1][j - box[i-1]] == true)
+                dp[i][j] = true;
+            else 
+                dp[i][j] = dp[i-1][j];
+        }
+
+        if(tempsum >= 2*k){
+            for(int itr=k;itr<=tempsum-k;itr++)
+                if(dp[i][itr] == true)
+                    return i;
+        }
+    }
+    return -1;
+}
+
 int32_t main() {
 
     #ifndef ONLINE_JUDGE 
@@ -43,12 +73,33 @@ int32_t main() {
             sum+=box[i];
         }
 
-        bool dp[n+1][k+1];
+        sort(box.begin(),box.end(),greater<int>());
 
-        for (int i = 0; i <= n; i++)
-            dp[i][0] = true;
-        
-        for(int i)
+        if(sum < 2*k)
+            cout<<-1<<endl;
+        else if(n>2 && box[0]>=k && box[1]>=k){
+            cout<<2<<endl;
+        }
+        else if(n>2 && box[0]>=k && box[1]<k){
+            int tempsum = 0,temp;
+            bool flag = false;
+            for(int i=1;i<n;i++){
+                tempsum+=box[i];
+                if(tempsum >=k){
+                    temp = i+1;
+                    flag = true;
+                    break;
+                }
+            }
+            if(flag)
+                cout<<temp<<endl;
+            else 
+                cout<<-1<<endl;
+        }
+        else{
+            cout<<givedadp(box,n,k)<<endl;
+        }
+
 	}
 
     return 0;

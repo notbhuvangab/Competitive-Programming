@@ -42,14 +42,9 @@ int32_t main() {
         if(x==y)
             cout<<n<<" "<<n<<endl;
         else{   
-            while(x<n && y<n){
-                x++;
-                y++;
-            }
-
             map<ll,pll> find;
-            find[1] = mp(x,y);
-            find[2] = mp(y,x);
+            x>y?find[1]=mp(n,y+n-x):find[1]=mp(x+n-y,n);
+            x>y?find[2]=mp(y+n-x,n):find[2]=mp(n,x+n-y);
             x>y?find[3]=mp(0,x-y):find[3]=mp(y-x,0);
             x>y?find[0]=mp(x-y,0):find[0]=mp(0,y-x);
 
