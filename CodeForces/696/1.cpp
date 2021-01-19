@@ -21,7 +21,7 @@ typedef vector<ll> vll;
 typedef vector<pll> vpll;
 typedef vector<vll> vvll;
 
-int count(string)
+
 int32_t main() {
 
     #ifndef ONLINE_JUDGE 
@@ -42,14 +42,34 @@ int32_t main() {
         cin>>s;
 
         vector<int> arr(n);
-
+        int sum[n];
         for(int i=0;i<n;i++){
-            if(i==0)
+            if(i==0){
                 arr[i] = 1;
+                s[0]=='1'?sum[i]=2:sum[i]=1;
+
+            }
             else{
-                if(s[i]=='0')
+                if(s[i]=='1'){
+                    if(sum[i-1]==2)
+                        arr[i]=0;
+                    else
+                        arr[i]=1;
+                    sum[i] = arr[i] + 1;
+                }
+                else{
+                    if(sum[i-1]==1)
+                        arr[i]=0;
+                    else
+                        arr[i]=1;
+                    sum[i] = arr[i] + 0;
+                }   
             }
         }
+        for(int i=0;i<n;i++){
+            cout<<arr[i];
+        }
+    cout<<endl;
 	}
     return 0;
 }
