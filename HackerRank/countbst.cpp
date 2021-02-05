@@ -21,14 +21,23 @@ typedef vector<ll> vll;
 typedef vector<pll> vpll;
 typedef vector<vll> vvll;
 
-bool powerOf2(ll n)
-{
-    if (n == 1) 
-      return true; 
-    else if (n % 2 != 0 || n ==0) 
-      return false; 
-    return powerOf2(n / 2); 
-}
+int numberOfBST(int n) 
+{ 
+    int dp[n + 1]; 
+    memset(dp,0,sizeof(dp)); 
+
+    dp[0] = 1; 
+    dp[1] = 1; 
+    int fdp=0;
+    for (int i = 2; i <= n; i++) { 
+        for (int j = 1; j <= i; j++) { 
+            dp[i] = dp[i] + (dp[i - j] * dp[j - 1]);
+        } 
+        fdp +=dp[i];
+    } 
+  
+    return dp[n]; 
+} 
 
 int32_t main() {
 
@@ -43,13 +52,10 @@ int32_t main() {
 	cin >> t;
 
     while(t--){
-        ll n;
+        int n;
         cin>>n;
-    
-        if(powerOf2(n)==false)
-            cout<<"YES"<<endl;
-        else 
-            cout<<"NO"<<endl;
-    	}
+
+        cout<<numberOfBST(n);
+	}
     return 0;
 }

@@ -21,15 +21,6 @@ typedef vector<ll> vll;
 typedef vector<pll> vpll;
 typedef vector<vll> vvll;
 
-bool powerOf2(ll n)
-{
-    if (n == 1) 
-      return true; 
-    else if (n % 2 != 0 || n ==0) 
-      return false; 
-    return powerOf2(n / 2); 
-}
-
 int32_t main() {
 
     #ifndef ONLINE_JUDGE 
@@ -43,13 +34,14 @@ int32_t main() {
 	cin >> t;
 
     while(t--){
-        ll n;
-        cin>>n;
-    
-        if(powerOf2(n)==false)
-            cout<<"YES"<<endl;
-        else 
-            cout<<"NO"<<endl;
-    	}
+        ll n,k;
+        vll p(n);
+
+        for(int i=0;;i<n;i++)
+            cin>>p[i];
+        
+        
+
+	}
     return 0;
 }
