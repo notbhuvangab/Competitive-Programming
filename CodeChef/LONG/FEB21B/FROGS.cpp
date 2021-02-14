@@ -39,35 +39,40 @@ int32_t main() {
 
         vector<int> w(n,0);
         vector<int> l(n);
-        map<int,int> wtl;
-        for(int i=0;i<n;i++)
+        map<int,int> wtl,wti;
+        for(int i=0;i<n;i++){
             cin>>w[i];
+            wti[w[i]] = i;
+        }
 
         for(int i=0;i<n;i++){
             cin>>l[i];
             wtl[w[i]] = l[i];
         }
 
-        if(is_sorted(w.begin(),w.end())){
-            cout<<0<<endl;
-            return 0;
-        }
+        // if(is_sorted(w.begin(),w.end())){
+        //     cout<<0<<endl;
+        //     return 0;
+        // }
 
-        if(n==2){
-            if(l[0]==1)
-                cout<<2<<endl;
-            else
-                cout<<1<<endl;
+        // if(n==2){
+        //     if(l[0]==1)
+        //         cout<<2<<endl;
+        //     else
+        //         cout<<1<<endl;
 
-            return 0;
-        }
+        //     return 0;
+        // }
+
+        int cnt = 0;
 
         vector<int> ind(n);
+        int j=0;
+        for(auto it:wti){
+           ind[j] = it.second;
+           j++;
+        }
 
-        for(int i=1;i<=n;i++)
-            ind.pb(find(w.begin(),w.end(),i)-w.begin());
-        
-        int cnt=0;
         for(int i=1;i<n;i++){
             while(ind[i]<=ind[i-1]){
                 ind[i]+=wtl[i+1];
