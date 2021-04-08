@@ -29,15 +29,14 @@ int32_t main() {
     #endif
 
 	fastAsFk_boi();
+    
+        int r,o,c;
+        cin>>r>>o>>c;
 
-	int t;
-	cin >> t;
+        if((20-o)*6*6 > r-c)
+            cout<<"YES";
+        else
+            cout<<"NO";
 
-    while(t--){
-        int c;
-        cin>>c;
-
-        
-	}
     return 0;
 }

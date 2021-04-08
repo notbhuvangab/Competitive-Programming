@@ -21,6 +21,11 @@ typedef vector<ll> vll;
 typedef vector<pll> vpll;
 typedef vector<vll> vvll;
 
+bool isPowerOfTwo(ll x)
+    {
+        return (x && !(x & (x - 1)));
+    }
+
 int32_t main() {
 
     #ifndef ONLINE_JUDGE 
@@ -30,14 +35,24 @@ int32_t main() {
 
 	fastAsFk_boi();
 
-	int t;
+	ll t;
 	cin >> t;
 
     while(t--){
-        int c;
-        cin>>c;
+        ll n,k;
+        cin>>n>>k;
 
-        
+        if(n%k==0){
+            cout<<n/k<<" "<<k<<endl;
+            continue;
+        }
+        if(k<n/2){
+            cout<<n/k+1<<" "<<k/2<<endl;
+            continue;
+        }
+        if(k>n/2){
+            cout<<n/k+1<<" "<<n-k<<endl;
+        }
 	}
     return 0;
 }

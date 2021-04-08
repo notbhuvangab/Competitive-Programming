@@ -21,6 +21,7 @@ typedef vector<ll> vll;
 typedef vector<pll> vpll;
 typedef vector<vll> vvll;
 
+
 int32_t main() {
 
     #ifndef ONLINE_JUDGE 
@@ -30,12 +31,16 @@ int32_t main() {
 
 	fastAsFk_boi();
 
-	int t;
+	ll t;
 	cin >> t;
 
     while(t--){
-        int c;
-        cin>>c;
+        int n,m;
+        cin>>n>>m;
+    
+        vll arr(n);
+        for(int i=0;i<n;i++)
+            cin>>arr[i];    
 
         
 	}
