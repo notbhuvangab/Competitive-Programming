@@ -48,8 +48,25 @@ void BST::Inorder(BST* root){
         return;
     }
     Inorder(root->left);
-    cout<<root->data<<endl;
+    cout<<root->data<<" ";
     Inorder(root->right);
+}
+void BST::Preorder(BST* root){
+    if(!root){
+        return;
+    }
+    cout<<root->data<<" ";
+    Preorder(root->left);
+    Preorder(root->right);
+}
+
+void BST::Postorder(BST* root){
+    if(!root){
+        return;
+    }
+    Postorder(root->left);
+    Postorder(root->right);
+    cout<<root->data<<" ";
 }
 
 
@@ -71,7 +88,7 @@ int main(){
     b.Insert(root, 60);
     b.Insert(root, 80);
  
-    b.Inorder(root);
+    b.Postorder(root);
     return 0;
 
 }
