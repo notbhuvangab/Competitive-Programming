@@ -30,3 +30,5 @@
 *.exe
 *.out
 *.app
+~$FINAL450(AutoRecovered).xlsx
+.gitignore
