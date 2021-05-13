@@ -3,33 +3,33 @@
 
 using namespace std;
 
-class BinarySearchTree{
+class BST{
     int data;
-    BinarySearchTree *left,*right;
+    BST *left,*right;
 
     public:
 
-    BinarySearchTree();
+    BST();
 
-    BinarySearchTree(int);
+    BST(int);
 
-    BinarySearchTree* Insert(BinarySearchTree*,int);
+    BST* Insert(BST*,int);
 
-    void Inorder(BinarySearchTree*);
-    void Preorder(BinarySearchTree*);
-    void Postorder(BinarySearchTree*);
+    void Inorder(BST*);
+    void Preorder(BST*);
+    void Postorder(BST*);
 };
 
-BinarySearchTree :: BinarySearchTree(): data() , left(NULL) , right(NULL){}
+BST :: BST(): data() , left(NULL) , right(NULL){}
 
-BinarySearchTree :: BinarySearchTree(int value){
+BST :: BST(int value){
     data = value;
     left = right = NULL;
 }
 
-BinarySearchTree* BinarySearchTree::Insert(BinarySearchTree* root,int value){
+BST* BST::Insert(BST* root,int value){
     if(!root){
-        return new BinarySearchTree(value);
+        return new BST(value);
     }
 
     if(value > root->data){
@@ -43,7 +43,7 @@ BinarySearchTree* BinarySearchTree::Insert(BinarySearchTree* root,int value){
 
 }
 
-void BinarySearchTree::Inorder(BinarySearchTree* root){
+void BST::Inorder(BST* root){
     if(!root){
         return;
     }
@@ -51,6 +51,7 @@ void BinarySearchTree::Inorder(BinarySearchTree* root){
     cout<<root->data<<endl;
     Inorder(root->right);
 }
+
 
 int main(){
 
@@ -61,7 +62,7 @@ int main(){
 
 	fastAsFk_boi();
 
-    BinarySearchTree b,*root = NULL;
+    BST b,*root = NULL;
     root = b.Insert(root,50);
     b.Insert(root, 30);
     b.Insert(root, 20);
