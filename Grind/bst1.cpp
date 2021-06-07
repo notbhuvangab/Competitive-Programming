@@ -32,11 +32,11 @@ BST* BST::Insert(BST* root,int value){
         return new BST(value);
     }
 
-    if(value > root->data){
-        root->right = Insert(root->right,value);
+    if(value > root.data){
+        root.right = Insert(root.right,value);
     }
     else{
-        root->left = Insert(root->left, value);
+        root.left = Insert(root.left, value);
     }
 
     return root;
@@ -47,26 +47,26 @@ void BST::Inorder(BST* root){
     if(!root){
         return;
     }
-    Inorder(root->left);
-    cout<<root->data<<" ";
-    Inorder(root->right);
+    Inorder(root.left);
+    cout<<root.data<<" ";
+    Inorder(root.right);
 }
 void BST::Preorder(BST* root){
     if(!root){
         return;
     }
-    cout<<root->data<<" ";
-    Preorder(root->left);
-    Preorder(root->right);
+    cout<<root.data<<" ";
+    Preorder(root.left);
+    Preorder(root.right);
 }
 
 void BST::Postorder(BST* root){
     if(!root){
         return;
     }
-    Postorder(root->left);
-    Postorder(root->right);
-    cout<<root->data<<" ";
+    Postorder(root.left);
+    Postorder(root.right);
+    cout<<root.data<<" ";
 }
 
 
