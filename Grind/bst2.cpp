@@ -2,4 +2,4 @@
 
 using namespace std;
 
-int m
+int m;
