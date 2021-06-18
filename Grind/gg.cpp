@@ -1,20 +1,13 @@
 
 #include<iostream>
-#include<algorithm>
-#include<cmath>
- 
-using namespace std;
-const int maxn = 10000 + 5;
-double n;
-double l, w;
 
+using namespace std;
 
 int main(){
 
     #ifndef ONLINE_JUDGE 
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
-
     #endif
 
     int n;
