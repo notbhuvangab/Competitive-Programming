@@ -1,2 +1,2 @@
 
-    while(num){
+    cin>>n;
