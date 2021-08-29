@@ -1,5 +1,5 @@
 import java.io.*;
-class FileRead9
+class FileRead
 {
 public static void main(String args[]) throws IOException
 {
