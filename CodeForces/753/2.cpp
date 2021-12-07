@@ -34,27 +34,14 @@ int32_t main() {
 	cin >> t;
 
     while(t--){
-        string strkey,strtemp;
-        cin>>strkey>>strtemp;
+        ll xnot,n;
+        cin>>xnot>>n;
 
-        map<char,int> strmap;
-
-        for(int i=0;i<strkey.length();i++){
-            strmap[strkey[i]] = i;
+        for(ll i=1;i<=n;i++){
+            xnot&1?xnot+=i:xnot-=i;
         }
 
-        if(strtemp.length()==1){
-            cout<<0<<endl;
-            continue;
-        }
-
-        int sum = 0;
-
-        for(int i=1;i<strtemp.length();i++){
-            sum+=abs(strmap[strtemp[i]] - strmap[strtemp[i-1]]);
-        }
-
-        cout<<sum<<endl;
+        cout<<xnot<<endl;
     }
     return 0;
 }
