@@ -1,25 +1,13 @@
-#include<bits/stdc++.h>
-
+#include <iostream>
 using namespace std;
 
-int main(){
-    #ifndef ONLINE_JUDGE 
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    #endif
-    int n;
-    cin>>n;
+int main()
+{
+    int a[3][3] = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}};
+    int *p= a;
 
-    if(n>0){
-    int sum=0,mul=1;
-    while(n){
-        sum+=(n%10);
-        mul*=(n%10);
-        n/=10;
-    }
-    sum==mul?cout<<"true":cout<<"false";
-    }
-    else{
-        cout<<-1;
-    }
+    cout << *(p+2) << endl;
 }
